@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./eslclock.css"/>
+	<script defer src="./eslclock.js"></script>
+	<title>Clock</title>
+</head>
+<body>
+	<div id="clock">
+		<div id="hour-tick-contain">
+			<div class="hour-tick"> 
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+			</div>
+			<div class="hour-tick">
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+				<div class="min-tick"></div>
+			</div>
+		</div>
+		<div id="alarm"> </div>
+		<div id="min"></div>
+		<div id="hour"></div>
+		<div id="sec"></div>
+		<ol id="hour-contain" class="hour-contain">
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+			<li class="hournums"></li>
+		</ol>
+		<ol id="min-contain" class="min-contain">
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+			<li class="minnums"></li>
+		</ol>
+	<div id="ledclock">
+		<div class="digits">
+			<div id="ledh1" class="zero">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<span class="d4"></span>
+				<span class="d5"></span>
+				<span class="d6"></span>
+				<span class="d7"></span>
+			</div>
+			<div id="ledh2" class="one">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<span class="d4"></span>
+				<span class="d5"></span>
+				<span class="d6"></span>
+				<span class="d7"></span>
+			</div>
+			<div id="dots1" class="dots"></div>
+			<div id="ledm1" class="three">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<span class="d4"></span>
+				<span class="d5"></span>
+				<span class="d6"></span>
+				<span class="d7"></span>
+			</div>
+			<div id="ledm2" class="four">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<span class="d4"></span>
+				<span class="d5"></span>
+				<span class="d6"></span>
+				<span class="d7"></span>
+			</div>
+			<div id="dots2" class="dots"></div>
+			<div id="leds1" class="five">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<span class="d4"></span>
+				<span class="d5"></span>
+				<span class="d6"></span>
+				<span class="d7"></span>
+			</div>
+			<div id="leds2" class="six">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<span class="d4"></span>
+				<span class="d5"></span>
+				<span class="d6"></span>
+				<span class="d7"></span>
+			</div>
+		</div>
+		<div class="ampm">AM</div>
+	</div>
+	</div>
+
+	<div class="button-bar">
+		<div id="offset-button" class="butt" style="display:none">Offset</div>
+		<div id="random-button" class="butt" style="display:none">Random</div>
+	</div>
+	<div id="option3bar" class="menubar-contain">☰</div>
+	<div id="option-panel" data-lang="true" class="option-panel">
+		<fieldset>
+			<legend>Time Mode</legend>
+			<div>
+				<label class="radiolabel">
+					<input id="real" type="radio" name="timeMode" value="0" checked/>
+					<span>Real</span>
+				</label>
+			</div>
+			<div>
+				<label class="radiolabel">
+					<input id="offset" type="radio" name="timeMode" value="1"/>
+					<span>Offset</span>
+				</label>
+				<table style="padding-left:10%">
+					<tr>
+						<th></th>
+						<th>Hours</th>
+						<th>Minutes</th>
+						<th>Seconds</th>
+					</tr>
+					<tr>
+						<th>Start</th>
+						<td>
+							<input id="start-hours" type="number" min="1" max="12" step="1" value="0" size="6">
+						</td>
+						<td>
+							<input id="start-mins" type="number" min="0" max="59" step="1" value="0" size="6">
+						</td>
+						<td>
+							<input id="start-secs" type="number" min="0" max="59" step="1" value="0" size="6">
+						</td>
+					</tr>
+					<tr>
+						<th>Offset</th>
+						<td>
+							<input id="offset-hours" type="number" min="1" max="12" step="1" value="0" size="6">
+						</td>
+						<td>
+							<input id="offset-mins" type="number" min="0" max="59" step="1" value="5" size="6">
+						</td>
+						<td>
+							<input id="offset-secs" type="number" min="0" max="59" step="1" value="0" size="6">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<label class="radiolabel">
+					<input id="random" type="radio" name="timeMode" value="2"/>
+					<span>Random</span>
+				</label>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Display Settings</legend>
+			<div>
+				<label>Show Hour Numbers</label>
+				<input id="show-hours" type="checkbox" name="show-hours" checked></input>
+			</div>
+			<div>
+				<label>Show minute Numbers</label>
+				<input id="show-minutes" type="checkbox" name="show-minute"></input>
+			</div>
+			<div>
+				<label>Show Hour Ticks</label>
+				<input id="show-hour-ticks" type="checkbox" name="show-hour-ticks" checked></input>
+			</div>
+			<div>
+				<label>Show minute Ticks</label>
+				<input id="show-min-ticks" type="checkbox" name="show-min-ticks" checked></input>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>LED Settings</legend>
+			<div>
+				<label>Show Digital</label>
+				<input id="show-digital" type="checkbox" name="show-digital" checked></input>
+			</div>
+			<div>
+				<label>Digital in front</label>
+				<input id="front-digital" type="checkbox" name="front-digital"></input>
+			</div>
+		</fieldset>
+		<div id="option-close" class='butt'>Close</div>
+	</div>
+</div>
+</body>
+</html>
